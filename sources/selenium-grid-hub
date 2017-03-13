@@ -16,7 +16,7 @@ case "${1:-''}" in
                 then
                         echo "Selenium grid hub is already running."
                 else
-                        java -jar /usr/lib/selenium/selenium-server-standalone.jar -role hub -hubConfig $HUBCONFIG > /var/log/selenium/selenium-grid-hub.log 2>&1 & echo $! > /tmp/selenium-grid-hub.pid
+                        java -jar /var/lib/selenium/selenium-server-standalone.jar -role hub -hubConfig $HUBCONFIG > /var/log/selenium/selenium-grid-hub.log 2>&1 & echo $! > /tmp/selenium-grid-hub.pid
                         echo "Starting Selenium grid hub..."
 
                         error=$?
@@ -49,7 +49,7 @@ case "${1:-''}" in
                         kill -HUP `cat /tmp/selenium-grid-hub.pid`
                         test -f /tmp/selenium-grid-hub.pid && rm -f /tmp/selenium-grid-hub.pid
                         sleep 1
-                        java -jar /usr/lib/selenium/selenium-server-standalone.jar -role hub -hubConfig $HUBCONFIG > /var/log/selenium/selenium-grid-hub.log 2>&1 & echo $! > /tmp/selenium-grid-hub.pid
+                        java -jar /var/lib/selenium/selenium-server-standalone.jar -role hub -hubConfig $HUBCONFIG > /var/log/selenium/selenium-grid-hub.log 2>&1 & echo $! > /tmp/selenium-grid-hub.pid
                         echo "Reload Selenium grid hub..."
                 else
                         echo "Selenium grid hub isn't running..."

@@ -12,7 +12,7 @@ LOG=/var/log/selenium/selenium-grid-node.log
 NODECONFIG=/etc/selenium-grid-node.json
 XVFBARGS="-screen 0 1280x1024x24"
 USER="selenium-grid-user"
-GRIDCOMMAND="java -jar /usr/lib/selenium/selenium-server-standalone.jar -role node -nodeConfig $NODECONFIG"
+GRIDCOMMAND="java -jar /var/lib/selenium/selenium-server-standalone.jar -role node -nodeConfig $NODECONFIG"
 XVFBCOMMAND="xvfb-run -s \"$XVFBARGS\" $GRIDCOMMAND"
 
 case "${1:-''}" in
